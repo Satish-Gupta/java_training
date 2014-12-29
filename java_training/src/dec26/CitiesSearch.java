@@ -17,7 +17,7 @@ public class CitiesSearch {
 	 */
 	public static void main(String[] args) {
 		Scanner scanner = new Scanner(System.in);
-		int numberOfCities;
+		int numberOfCities = 0;
 		String[] cities = null;
 		String searchStr = "";
 		
