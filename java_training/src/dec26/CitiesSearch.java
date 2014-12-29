@@ -12,9 +12,6 @@ import java.util.Scanner;
  */
 public class CitiesSearch {
 
-	/**
-	 * @param args
-	 */
 	public static void main(String[] args) {
 		Scanner scanner = new Scanner(System.in);
 		int numberOfCities = 0;
@@ -40,10 +37,21 @@ public class CitiesSearch {
 		System.out.println("\nEnter the search string");
 		searchStr = scanner.next();
 		
-		for(int i = 0; i < cities.length; i++) {
-			if(cities[i].contains(searchStr)) {
-				System.out.print(cities[i] + ' ');
+		boolean isFound = false;
+		for(int i = 0; i < numberOfCities; i++) {			
+			if(cities[i].toLowerCase().contains(searchStr.toLowerCase())) {
+				// show listing message if this is the first match
+				if(!isFound) {
+					System.out.println("The cities found are: ");
+				}
+				System.out.println(cities[i]);
+				isFound = true;
 			}
+		}
+		
+		// Display appropriate message if there is no cities containing the search string
+		if(!isFound) {
+			System.out.println("No cities found for the given search string");
 		}
 		
 		scanner.close();
