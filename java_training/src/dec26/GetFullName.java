@@ -40,7 +40,7 @@ public class GetFullName {
 				ans="";
 			}
 			
-		} while(ans.equals("n") || ans.equals("N"));
+		} while(ans.equalsIgnoreCase("n"));
 		
 		// get first Name		
 		do {
@@ -59,7 +59,7 @@ public class GetFullName {
 			} else {
 				ans="";
 			}			
-		} while(ans.equals("n") | ans.equals("N"));
+		} while(ans.equalsIgnoreCase("n"));
 				
 		// get last name
 		do {
@@ -72,7 +72,7 @@ public class GetFullName {
 			} else {
 				ans="";
 			}
-		} while(ans.equals("n") | ans.equals("N"));
+		} while (ans.equalsIgnoreCase("n"));
 		
 		fullName += initials;
 		
