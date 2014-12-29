@@ -26,7 +26,7 @@ public class IntegerDemo {
 			int integerNumber = scanner.nextInt();		
 			System.out.println("The number you entered: " + integerNumber);			
 		} catch(InputMismatchException exception) {			
-			exception.printStackTrace();			
+			System.out.println(exception);			
 		} finally {
 			scanner.close();
 		}
