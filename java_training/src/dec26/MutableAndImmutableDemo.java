@@ -11,25 +11,21 @@ package dec26;
  */
 public class MutableAndImmutableDemo {
 
-	/**
-	 * @param args
-	 */
 	public static void main(String[] args) {
-		
+
 		String greetings = "Welcome";
-		
+
 		// try concating a string to greetings
 		greetings.concat("EveryOne");
-		
+
 		System.out.println(greetings);
-		
+
 		// check what String.concat(String) returns
 		System.out.println(greetings.concat("EveryOne"));
-		
-		
+
 		StringBuilder welcomeString = new StringBuilder("Welcome Everyone");
 		welcomeString.append("!!!");
-		
+
 		System.out.println(welcomeString);
 
 	}

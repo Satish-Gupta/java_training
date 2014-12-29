@@ -13,20 +13,17 @@ import java.util.Scanner;
  */
 public class IntegerDemo {
 
-	/**
-	 * @param args
-	 */
 	public static void main(String[] args) {
-		
+
 		Scanner scanner = new Scanner(System.in);
-		
+
 		System.out.println("Enter an integer value. Try the number 2147483648");
 
-		try {			
-			int integerNumber = scanner.nextInt();		
-			System.out.println("The number you entered: " + integerNumber);			
-		} catch(InputMismatchException exception) {			
-			System.out.println(exception);			
+		try {
+			int integerNumber = scanner.nextInt();
+			System.out.println("The number you entered: " + integerNumber);
+		} catch (InputMismatchException exception) {
+			System.out.println(exception);
 		} finally {
 			scanner.close();
 		}
