@@ -14,11 +14,12 @@ public class GetInitials {
 	public static void main(String[] args) {
 		Scanner scanner = new Scanner(System.in);
 		
+		System.out.println("Enter your Name with initials");
 		String name = scanner.nextLine();
 		
-		if(name.startsWith("Mr.")) {
+		if(name.toLowerCase().startsWith("mr.")) {
 			System.out.println(name.substring(0, 3));
-		} else if(name.startsWith("Mrs.")) {
+		} else if(name.toLowerCase().startsWith("mrs.")) {
 			System.out.println(name.substring(0, 4));
 		} else {
 			System.out.println("Yout did not mention your initials");
