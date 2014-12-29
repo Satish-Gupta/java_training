@@ -1,0 +1,117 @@
+/**
+ * Write a program using switch statement to develop a simple calculator for +, -, *, /, and % operators.
+ */
+package dec29;
+
+import java.util.InputMismatchException;
+import java.util.Scanner;
+
+/**
+ * @author satish
+ *
+ */
+public class Calculator {
+
+	public static void main(String[] args) {
+		Scanner scanner = new Scanner(System.in);
+		String operator = "";
+		String[] operations = { "Addition", "Subtraction", "Multiplication",
+				"Division", "Modulus" };
+		String[] operators = { "+", "-", "*", "/", "%" };
+		double operand1 = 0;
+		double operand2 = 0;
+		double result = 0;
+
+		boolean isInputFormatCorrect = false;
+
+		System.out.println("Select the operation you want to perform:");
+		for (int i = 0; i < operations.length; i++) {
+			System.out.println((i + 1) + "." + operations[i] + "("
+					+ operators[i] + ")");
+		}
+
+		int choice = -1;
+		do {
+			try {
+				choice = scanner.nextInt();
+				isInputFormatCorrect = true;
+
+			} catch (InputMismatchException e) {
+				System.out
+						.println("You did not enter a number. Please enter a number");
+				// to clear the scanner buffer
+				scanner.nextLine();
+			}
+		} while (choice < 1 && choice > 5);
+
+		// get operator for the selected option
+		operator = operators[choice - 1];
+
+		// reset isCorrectInputFormat to reuse it for first number
+		isInputFormatCorrect = false;
+
+		System.out.println("Enter the first number");
+		do {
+			try {
+				operand1 = scanner.nextDouble();
+				isInputFormatCorrect = true;
+			} catch (InputMismatchException e) {
+				System.out
+						.println("You did not enter a number. Please enter a number");
+				// to clear the scanner buffer
+				scanner.nextLine();
+			}
+		} while (!isInputFormatCorrect);
+
+		// reset isCorrectInputFormat to reuse it for second number
+		isInputFormatCorrect = false;
+		System.out.println("Enter the second number");
+		do {
+			try {
+				operand2 = scanner.nextDouble();
+				isInputFormatCorrect = true;
+			} catch (InputMismatchException e) {
+				System.out
+						.println("You did not enter a number. Please enter a number");
+				// to clear the scanner buffer
+				scanner.nextLine();
+			}
+		} while (!isInputFormatCorrect);
+
+		switch (operator) {
+		case "+":
+			result = operand1 + operand2;
+			break;
+		case "-":
+			result = operand1 - operand2;
+			break;
+		case "*":
+			result = operand1 * operand2;
+			break;
+		case "/":
+			try {
+				if (operand2 == 0) {
+					throw new ArithmeticException("Division by zero");
+				}
+				result = operand1 / operand2;
+			} catch (Exception e) {
+				System.out.println(e);
+				return;
+			} finally {
+				scanner.close();
+			}
+			break;
+		case "%":
+			result = operand1 % operand2;
+			break;
+		default:
+			System.out.println("Wrong Input");
+			break;
+		}
+
+		System.out.println(operand1 + " " + operator + " " + operand2 + " = "
+				+ result);
+
+	}
+
+}
