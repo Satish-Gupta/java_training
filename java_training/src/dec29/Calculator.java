@@ -7,6 +7,8 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 
 /**
+ * This class simulates a basic two operand calculator.
+ * 
  * @author satish
  *
  */
@@ -15,9 +17,9 @@ public class Calculator {
 	public static void main(String[] args) {
 		Scanner scanner = new Scanner(System.in);
 		String operator = "";
-		String[] operations = { "Addition", "Subtraction", "Multiplication",
+		final String[] OPERATIONS = { "Addition", "Subtraction", "Multiplication",
 				"Division", "Modulus" };
-		String[] operators = { "+", "-", "*", "/", "%" };
+		final String[] OPERATORS = { "+", "-", "*", "/", "%" };
 		double operand1 = 0;
 		double operand2 = 0;
 		double result = 0;
@@ -27,9 +29,9 @@ public class Calculator {
 		boolean isInputFormatCorrect = false;
 
 		System.out.println("Select the operation you want to perform:");
-		for (int i = 0; i < operations.length; i++) {
-			System.out.println((i + 1) + "." + operations[i] + "("
-					+ operators[i] + ")");
+		for (int i = 0; i < OPERATIONS.length; i++) {
+			System.out.println((i + 1) + "." + OPERATIONS[i] + "("
+					+ OPERATORS[i] + ")");
 		}
 
 		
@@ -54,7 +56,7 @@ public class Calculator {
 			// get operator for the selected option
 			if(isChoiceValid) {
 				// get operator for the selected option
-				operator = operators[choice - 1];
+				operator = OPERATORS[choice - 1];
 			}
 			
 
