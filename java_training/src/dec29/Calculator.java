@@ -21,7 +21,9 @@ public class Calculator {
 		double operand1 = 0;
 		double operand2 = 0;
 		double result = 0;
-
+		int choice = -1;
+		boolean isChoiceValid = false;
+		
 		boolean isInputFormatCorrect = false;
 
 		System.out.println("Select the operation you want to perform:");
@@ -30,53 +32,66 @@ public class Calculator {
 					+ operators[i] + ")");
 		}
 
-		int choice = -1;
-		do {
-			try {
-				choice = scanner.nextInt();
-				isInputFormatCorrect = true;
+		
+		try {
+			do {
+				try {
+					choice = scanner.nextInt();
+					isInputFormatCorrect = true;
+					isChoiceValid = choice >= 1 && choice <= 5;
+					if(!isChoiceValid) {
+						System.out.println("Please select valid option");
+					}
 
-			} catch (InputMismatchException e) {
-				System.out
-						.println("You did not enter a number. Please enter a number");
-				// to clear the scanner buffer
-				scanner.nextLine();
+				} catch (InputMismatchException e) {
+					System.out
+							.println("You did not enter a number. Please enter a number");
+					// to clear the scanner buffer
+					scanner.nextLine();
+				}
+			} while (!isChoiceValid);
+
+			// get operator for the selected option
+			if(isChoiceValid) {
+				// get operator for the selected option
+				operator = operators[choice - 1];
 			}
-		} while (choice < 1 && choice > 5);
+			
 
-		// get operator for the selected option
-		operator = operators[choice - 1];
+			// reset isCorrectInputFormat to reuse it for first number
+			isInputFormatCorrect = false;
 
-		// reset isCorrectInputFormat to reuse it for first number
-		isInputFormatCorrect = false;
+			System.out.println("Enter the first number");
+			do {
+				try {
+					operand1 = scanner.nextDouble();
+					isInputFormatCorrect = true;
+				} catch (InputMismatchException e) {
+					System.out
+							.println("You did not enter a number. Please enter a number");
+					// to clear the scanner buffer
+					scanner.nextLine();
+				}
+			} while (!isInputFormatCorrect);
 
-		System.out.println("Enter the first number");
-		do {
-			try {
-				operand1 = scanner.nextDouble();
-				isInputFormatCorrect = true;
-			} catch (InputMismatchException e) {
-				System.out
-						.println("You did not enter a number. Please enter a number");
-				// to clear the scanner buffer
-				scanner.nextLine();
-			}
-		} while (!isInputFormatCorrect);
+			// reset isCorrectInputFormat to reuse it for second number
+			isInputFormatCorrect = false;
+			System.out.println("Enter the second number");
 
-		// reset isCorrectInputFormat to reuse it for second number
-		isInputFormatCorrect = false;
-		System.out.println("Enter the second number");
-		do {
-			try {
-				operand2 = scanner.nextDouble();
-				isInputFormatCorrect = true;
-			} catch (InputMismatchException e) {
-				System.out
-						.println("You did not enter a number. Please enter a number");
-				// to clear the scanner buffer
-				scanner.nextLine();
-			}
-		} while (!isInputFormatCorrect);
+			do {
+				try {
+					operand2 = scanner.nextDouble();
+					isInputFormatCorrect = true;
+				} catch (InputMismatchException e) {
+					System.out
+							.println("You did not enter a number. Please enter a number");
+					// to clear the scanner buffer
+					scanner.nextLine();
+				}
+			} while (!isInputFormatCorrect);
+		} finally {
+			scanner.close();
+		}
 
 		switch (operator) {
 		case "+":
