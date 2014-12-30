@@ -11,17 +11,19 @@ import java.util.Scanner;
 
 /**
  * @author satish
- *
+ * 
  */
 public class IntegerPalindrome {
-
+	/**
+	 * reverses the number passed as parameter and returns the reversed number.
+	 * 
+	 * @param number the number to be reversed
+	 * @return reversedNumber the reversed number
+	 *
+	 */
 	public static int reverseNumber(int number) {
-		/*
-		 * reverses the number passed as parameter and returns the reversed
-		 * number.
-		 */
-
-		int reverseNumber = 0;
+		
+		int reversedNumber = 0;
 
 		// get the last digit
 		int temp = number % 10;
@@ -31,15 +33,15 @@ public class IntegerPalindrome {
 
 		while (number != 0) {
 
-			reverseNumber = reverseNumber * 10 + temp / (int) Math.pow(10, i);
+			reversedNumber = reversedNumber * 10 + temp / (int) Math.pow(10, i);
 			temp = number % (int) Math.pow(10, i + 2);
 			number = number - temp;
 
 			i++;
 		}
-		reverseNumber = reverseNumber * 10 + temp / (int) Math.pow(10, i);
+		reversedNumber = reversedNumber * 10 + temp / (int) Math.pow(10, i);
 
-		return reverseNumber;
+		return reversedNumber;
 	}
 
 	public static void main(String[] args) {
@@ -53,7 +55,7 @@ public class IntegerPalindrome {
 			try {
 				number = scanner.nextInt();
 
-				if (number > 99999 || number <= 9999) {
+				if (Math.abs(number) > 99999 || Math.abs(number) <= 9999) {
 					System.out
 							.println("Given number is not a 5 digits number. Please enter 5 digits number");
 				} else {
