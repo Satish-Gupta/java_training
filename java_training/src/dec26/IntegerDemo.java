@@ -23,7 +23,7 @@ public class IntegerDemo {
 			int integerNumber = scanner.nextInt();
 			System.out.println("The number you entered: " + integerNumber);
 		} catch (InputMismatchException exception) {
-			System.out.println(exception);
+			System.err.println(exception);
 		} finally {
 			scanner.close();
 		}
