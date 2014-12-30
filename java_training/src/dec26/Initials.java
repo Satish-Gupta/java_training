@@ -6,6 +6,9 @@ package dec26;
 import java.util.Scanner;
 
 /**
+ * This class asks user to input his name and if the name consists of initials then it is 
+ * displayed to the user else appropriate message is shown.
+ * 
  * @author satish
  *
  */

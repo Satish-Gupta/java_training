@@ -7,6 +7,9 @@ package dec26;
 import java.util.Scanner;
 
 /**
+ * This class takes asks user to enter cities and a search string and displays any cities 
+ * that contains the search string. If no match is found it displays the appropriate message.
+ * 
  * @author satish
  *
  */

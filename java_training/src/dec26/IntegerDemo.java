@@ -8,6 +8,10 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 
 /**
+ * This class asks user for integer and if the value is greater then the maximum value of 
+ * int datatype then the exception caught is handled and the exception displayed else the value
+ * is displayed.
+ * 
  * @author satish
  *
  */

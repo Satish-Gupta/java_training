@@ -6,6 +6,9 @@
 package dec26;
 
 /**
+ * This class demonstrate the difference between mutable and immutable data types.
+ * Here String is immutable datatype and String builder is mutable datatype.
+ * 
  * @author satish
  *
  */

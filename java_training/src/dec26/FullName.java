@@ -7,6 +7,9 @@ package dec26;
 import java.util.Scanner;
 
 /**
+ * This class ask user to input his name initials, first name , middle name, last name one by one 
+ * and computes his full Name which is then displayed.
+ * 
  * @author satish
  *
  */
