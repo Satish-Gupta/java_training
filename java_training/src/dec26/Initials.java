@@ -16,13 +16,20 @@ public class Initials {
 		
 		System.out.println("Enter your Name with initials");
 		String name = scanner.nextLine();
+		String emptyString ="";
+		String namefirstPart = "";
 		
-		if(name.toLowerCase().startsWith("mr.")) {
-			System.out.println(name.substring(0, 3));
-		} else if(name.toLowerCase().startsWith("mrs.")) {
-			System.out.println(name.substring(0, 4));
+		int firstSpaceIndex = name.indexOf(" ");
+		// get the substring before the first space to avoid taking initials in names having abreviated middlename
+		if(firstSpaceIndex!= -1) {
+			namefirstPart = name.substring(0, firstSpaceIndex + 1);
+		}
+		String nameInitials = namefirstPart.substring(0, namefirstPart.indexOf(".") + 1);
+		
+		if(!nameInitials.equals(emptyString)) {
+			System.out.println("Your initials: " + nameInitials);
 		} else {
-			System.out.println("Yout did not mention your initials");
+			System.out.println("you did not give initials");
 		}
 		
 		scanner.close();
