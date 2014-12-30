@@ -10,7 +10,7 @@ import java.util.Scanner;
  * @author satish
  *
  */
-public class GetFullName {
+public class FullName {
 
 	public static void main(String[] args) {
 		String initials = "";

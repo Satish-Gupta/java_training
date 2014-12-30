@@ -9,7 +9,7 @@ import java.util.Scanner;
  * @author satish
  *
  */
-public class GetInitials {
+public class Initials {
 
 	public static void main(String[] args) {
 		Scanner scanner = new Scanner(System.in);
