@@ -13,7 +13,7 @@ import java.util.Scanner;
 public class FullName {
 
 	public static void main(String[] args) {
-		String initials = "";
+		String nameInitials = "";
 		String firstName = "";
 		String midName = "";
 		String lastName = "";
@@ -29,15 +29,17 @@ public class FullName {
 		do {
 			System.out.println("Please Enter your initials");
 
-			initials = scanner.nextLine().trim();
-
-			if (initials.isEmpty()) {
+			nameInitials = scanner.nextLine().trim();
+			
+			ans = "";
+			
+			if (nameInitials.isEmpty()) {
 				System.out.println("Skip initials y/n");
 				ans = scanner.nextLine();
 				System.out.println(ans);
-			} else {
-				ans = "";
-			}
+			} 
+				
+		
 
 		} while (ans.equalsIgnoreCase(ANSWER_NOT));
 
@@ -51,13 +53,14 @@ public class FullName {
 		do {
 			System.out.println(" Please Enter your Middle Name");
 			midName = scanner.nextLine().trim();
-
+			
+			ans = "";
+			
 			if (midName.isEmpty()) {
 				System.out.println("Skip middle name y/n");
 				ans = scanner.nextLine();
-			} else {
-				ans = "";
 			}
+
 		} while (ans.equalsIgnoreCase(ANSWER_NOT));
 
 		// get last name
@@ -65,18 +68,18 @@ public class FullName {
 			System.out.println(" Please Enter your Last Name");
 			lastName = scanner.nextLine().trim();
 
+			ans = "";
+			
 			if (lastName.isEmpty()) {
 				System.out.println("Skip last y/n");
 				ans = scanner.nextLine().trim();
-			} else {
-				ans = "";
-			}
+			} 
 		} while (ans.equalsIgnoreCase(ANSWER_NOT));
 
-		fullName += initials;
+		fullName += nameInitials;
 
 		// add space after intials if initials is not empty
-		if (!initials.isEmpty()) {
+		if (!nameInitials.isEmpty()) {
 			fullName += NAME_SEPARATOR;
 		}
 
