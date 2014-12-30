@@ -18,6 +18,8 @@ public class FullName {
 		String midName = "";
 		String lastName = "";
 		String fullName = "";
+		final String ANSWER_NOT = "n";
+		final char NAME_SEPARATOR = ' ';
 
 		// to take response from the user if he/she wants to skip certain inputs
 		String ans = "";
@@ -37,7 +39,7 @@ public class FullName {
 				ans = "";
 			}
 
-		} while (ans.equalsIgnoreCase("n"));
+		} while (ans.equalsIgnoreCase(ANSWER_NOT));
 
 		// get first Name
 		do {
@@ -56,7 +58,7 @@ public class FullName {
 			} else {
 				ans = "";
 			}
-		} while (ans.equalsIgnoreCase("n"));
+		} while (ans.equalsIgnoreCase(ANSWER_NOT));
 
 		// get last name
 		do {
@@ -69,27 +71,27 @@ public class FullName {
 			} else {
 				ans = "";
 			}
-		} while (ans.equalsIgnoreCase("n"));
+		} while (ans.equalsIgnoreCase(ANSWER_NOT));
 
 		fullName += initials;
 
 		// add space after intials if initials is not empty
 		if (!initials.isEmpty()) {
-			fullName += " ";
+			fullName += NAME_SEPARATOR;
 		}
 
 		fullName += firstName;
 
 		// add space after first name if midName is not empty
 		if (!midName.isEmpty()) {
-			fullName += " ";
+			fullName += NAME_SEPARATOR;
 		}
 
 		fullName += midName;
 
 		// add space after midName if lastName is not empty
 		if (!lastName.isEmpty()) {
-			fullName += " ";
+			fullName += NAME_SEPARATOR;
 		}
 
 		fullName += lastName;
