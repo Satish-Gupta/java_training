@@ -5,6 +5,8 @@ package dec29;
 
 
 /**
+ * This class adds all integers greater than 100 and less than 200 and divisible by seven.
+ * 
  * @author satish
  *
  */

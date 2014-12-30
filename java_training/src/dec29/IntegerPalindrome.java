@@ -10,6 +10,8 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 
 /**
+ * This class accepts a 5 digit integer and checks if the number is palindrome.
+ * 
  * @author satish
  * 
  */
