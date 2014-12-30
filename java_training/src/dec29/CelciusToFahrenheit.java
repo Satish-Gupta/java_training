@@ -15,7 +15,7 @@ public class CelciusToFahrenheit {
 		for(int i = 0; i < 100; i++) {
 			double temparatureInCelcius = i;
 			double temparatureInFahrenheit = temparatureInCelcius * 9 / 5 + 32;
-			System.out.println(temparatureInCelcius + "deg C =" + temparatureInFahrenheit + "deg F" );
+			System.out.println(temparatureInCelcius + "\u2103" + temparatureInFahrenheit + "\u2109" );
 		}
 	}
 
