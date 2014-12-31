@@ -74,16 +74,14 @@ public class Calculator {
 	 * @throw ArithmeticException when operand2 is zero
 	 */
 	public static Double divide(double operand1, double operand2) {
-		try {
-			if (operand2 == 0) {
-				throw new ArithmeticException("Division by zero");
-			}
+
+		if (operand2 == 0) {
+			System.out.println("division by zero");
+		} else {
 			return operand1 / operand2;
-		} catch (ArithmeticException exception) {
-			System.err.println(exception);
-			return null;
 		}
 
+		return null;
 	}
 
 	/**
@@ -98,15 +96,12 @@ public class Calculator {
 	 * @throw ArithmeticException when operand2 is zero
 	 */
 	public static Double getRemainder(double operand1, double operand2) {
-		try {
-			if (operand2 == 0) {
-				throw new ArithmeticException("Division by zero");
-			}
+		if (operand2 == 0) {
 			return operand1 % operand2;
-		} catch (ArithmeticException exception) {
-			System.err.println(exception);
-			return null;
+		} else {
+			System.out.println("division by zero");
 		}
+		return null;
 	}
 
 	/**
