@@ -1,15 +1,16 @@
-/**
- * A palindrome is a sequence of characters that reads the same backward as forward. 
- * For example, each of the following five-digit integers is a palindrome: 12321, 55555, 45554 and 11611. 
- * Write an application that reads in a five-digit integer and determines whether it is a palindrome. 
- * If the number is not five digits long, display an error message and allow the user to enter a new value.
- */
 package dec29;
 
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
 /**
+ * A palindrome is a sequence of characters that reads the same backward as
+ * forward. For example, each of the following five-digit integers is a
+ * palindrome: 12321, 55555, 45554 and 11611. Write an application that reads in
+ * a five-digit integer and determines whether it is a palindrome. If the number
+ * is not five digits long, display an error message and allow the user to enter
+ * a new value.
+ * 
  * This class accepts a 5 digit integer and checks if the number is palindrome.
  * 
  * @author satish
@@ -19,12 +20,13 @@ public class IntegerPalindrome {
 	/**
 	 * reverses the number passed as parameter and returns the reversed number.
 	 * 
-	 * @param number the number to be reversed
+	 * @param number
+	 *            the number to be reversed
 	 * @return reversedNumber the reversed number
 	 *
 	 */
 	public static int reverseNumber(int number) {
-		
+
 		int reversedNumber = 0;
 
 		// get the last digit

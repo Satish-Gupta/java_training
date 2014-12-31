@@ -1,13 +1,13 @@
-/**
- * 	Create a class MutableAndImmutableDemo. Inside that class crate object greeting of String
- * and another object welcome of StringBuilder type. Try to modify by concating some string as
- * a suffix.
- */
 package dec26;
 
 /**
- * This class demonstrate the difference between mutable and immutable data types.
- * Here String is immutable datatype and String builder is mutable datatype.
+ * Create a class MutableAndImmutableDemo. Inside that class crate object
+ * greeting of String and another object welcome of StringBuilder type. Try to
+ * modify by concating some string as a suffix.
+ * 
+ * This class demonstrate the difference between mutable and immutable data
+ * types. Here String is immutable datatype and String builder is mutable
+ * datatype.
  * 
  * @author satish
  *

@@ -1,6 +1,3 @@
-/**
- *
- */
 package dec29;
 
 import java.util.InputMismatchException;

@@ -1,14 +1,12 @@
-/**
- * WAP which gets three arguments from the console i.e initials, first name, mid name and 
- * last name and concatenates all the values and displays the full name
- */
 package dec26;
 
 import java.util.Scanner;
 
 /**
- * This class ask user to input his name initials, first name , middle name, last name one by one 
- * and computes his full Name which is then displayed.
+ * WAP which gets three arguments from the console i.e initials, first name, mid
+ * name and last name and concatenates all the values and displays the full name
+ * This class ask user to input his name initials, first name , middle name,
+ * last name one by one and computes his full Name which is then displayed.
  * 
  * @author satish
  *
@@ -33,16 +31,14 @@ public class FullName {
 			System.out.println("Please Enter your initials");
 
 			nameInitials = scanner.nextLine().trim();
-			
+
 			ans = "";
-			
+
 			if (nameInitials.isEmpty()) {
 				System.out.println("Skip initials y/n");
 				ans = scanner.nextLine();
 				System.out.println(ans);
-			} 
-				
-		
+			}
 
 		} while (ans.equalsIgnoreCase(ANSWER_NOT));
 
@@ -56,9 +52,9 @@ public class FullName {
 		do {
 			System.out.println(" Please Enter your Middle Name");
 			midName = scanner.nextLine().trim();
-			
+
 			ans = "";
-			
+
 			if (midName.isEmpty()) {
 				System.out.println("Skip middle name y/n");
 				ans = scanner.nextLine();
@@ -72,11 +68,11 @@ public class FullName {
 			lastName = scanner.nextLine().trim();
 
 			ans = "";
-			
+
 			if (lastName.isEmpty()) {
 				System.out.println("Skip last y/n");
 				ans = scanner.nextLine().trim();
-			} 
+			}
 		} while (ans.equalsIgnoreCase(ANSWER_NOT));
 
 		fullName += nameInitials;
