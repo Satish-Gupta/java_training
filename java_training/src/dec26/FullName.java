@@ -12,68 +12,65 @@ import java.util.Scanner;
  *
  */
 public class FullName {
+	public static Scanner scanner = new Scanner(System.in);
 
-	public static void main(String[] args) {
-		String nameInitials = "";
-		String firstName = "";
-		String midName = "";
-		String lastName = "";
-		String fullName = "";
-		final String ANSWER_NOT = "n";
-		final char NAME_SEPARATOR = ' ';
-
-		// to take response from the user if he/she wants to skip certain inputs
+	/**
+	 * gets a part of the full name from the user. If the user presses enter
+	 * without specifying anything then user is asked if he really intends to
+	 * skip that part. If the input is the first name then the user is not shown
+	 * the skip prompt.
+	 * 
+	 * @param namePartName
+	 *            part of the full name that needs to be read from the user
+	 * @return the part of the full name that was taken as input from the user
+	 */
+	public static String getPartOfName(String namePartName) {
+		String namePart = "";
 		String ans = "";
-		Scanner scanner = new Scanner(System.in);
-
-		// get initials part of Name
+		boolean isSkipingNamePart = false;
 		do {
-			System.out.println("Please Enter your initials");
+			System.out.println("Enter your " + namePartName);
 
-			nameInitials = scanner.nextLine().trim();
+			namePart = scanner.nextLine().trim();
 
-			ans = "";
+			// check if input is empty and the input is not the first name
+			if (namePart.isEmpty() && !namePartName.equals("first name")) {
 
-			if (nameInitials.isEmpty()) {
-				System.out.println("Skip initials y/n");
+				// show skip message
+				System.out.println("skip " + namePartName + " y/n");
+
 				ans = scanner.nextLine();
-				System.out.println(ans);
+
+				if (ans.equals("y")) {
+					isSkipingNamePart = true;
+				}
+				// check if name is empty but the input is first name
+			} else if (namePart.isEmpty() && namePartName.equals("first name")) {
+				isSkipingNamePart = false;
+				/*
+				 * set skip messege true if namePart not empty i.e user entered
+				 * the input
+				 */
+			} else {
+				isSkipingNamePart = true;
 			}
 
-		} while (ans.equalsIgnoreCase(ANSWER_NOT));
+		} while (!isSkipingNamePart);
 
-		// get first Name
-		do {
-			System.out.println("Please Enter your First Name");
-			firstName = scanner.nextLine().trim();
-		} while (firstName.isEmpty());
+		return namePart;
+	}
 
-		// get middle name
-		do {
-			System.out.println(" Please Enter your Middle Name");
-			midName = scanner.nextLine().trim();
-
-			ans = "";
-
-			if (midName.isEmpty()) {
-				System.out.println("Skip middle name y/n");
-				ans = scanner.nextLine();
-			}
-
-		} while (ans.equalsIgnoreCase(ANSWER_NOT));
-
-		// get last name
-		do {
-			System.out.println(" Please Enter your Last Name");
-			lastName = scanner.nextLine().trim();
-
-			ans = "";
-
-			if (lastName.isEmpty()) {
-				System.out.println("Skip last y/n");
-				ans = scanner.nextLine().trim();
-			}
-		} while (ans.equalsIgnoreCase(ANSWER_NOT));
+	/**
+	 * @param nameInitials
+	 * @param firstName
+	 * @param middleName
+	 * @param lastName
+	 * @return the fullName created by appending the fullnameParts
+	 */
+	public static String generateFullName(String nameInitials,
+			String firstName, String middleName, String lastName) {
+		String fullName = "";
+		final char NAME_SEPARATOR = ' ';
 
 		fullName += nameInitials;
 
@@ -85,11 +82,11 @@ public class FullName {
 		fullName += firstName;
 
 		// add space after first name if midName is not empty
-		if (!midName.isEmpty()) {
+		if (!middleName.isEmpty()) {
 			fullName += NAME_SEPARATOR;
 		}
 
-		fullName += midName;
+		fullName += middleName;
 
 		// add space after midName if lastName is not empty
 		if (!lastName.isEmpty()) {
@@ -98,9 +95,32 @@ public class FullName {
 
 		fullName += lastName;
 
-		System.out.println("Your fullName is:" + fullName);
+		return fullName;
+	}
+
+	public static void main(String[] args) {
+
+		String nameInitials = "";
+		String firstName = "";
+		String midName = "";
+		String lastName = "";
+		String fullName = "";
+
+		// to take response from the user if he/she wants to skip certain inputs
+		Scanner scanner = new Scanner(System.in);
+
+		// get initials part of Name
+		nameInitials = getPartOfName("initials");
+		// get first Name
+		firstName = getPartOfName("first name");
+		// get middle name
+		midName = getPartOfName("middle name");
+		// get last name
+		lastName = getPartOfName("last name");
+
+		fullName = generateFullName(nameInitials, firstName, midName, lastName);
+		System.out.println("Your fullName is: " + fullName);
 
 		scanner.close();
 	}
-
 }
