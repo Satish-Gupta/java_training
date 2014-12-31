@@ -17,7 +17,12 @@ public class Initials {
 		Scanner scanner = new Scanner(System.in);
 
 		System.out.println("Enter your Name with initials");
-		String name = scanner.nextLine();
+		String name = "";
+		try {
+			name = scanner.nextLine();
+		} finally {
+			scanner.close();
+		}
 		String emptyString = "";
 		String namefirstPart = "";
 
@@ -36,7 +41,6 @@ public class Initials {
 			System.out.println("you did not give initials");
 		}
 
-		scanner.close();
 	}
 
 }
