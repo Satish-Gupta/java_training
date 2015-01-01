@@ -17,32 +17,30 @@ import java.util.Scanner;
  */
 public class NumberGuessGame {
 
-	public static void main(String[] args) {
-		Scanner scanner = new Scanner(System.in);
-		// lower bound of the range for the secret number (exclusive)
-		int startRange = 1;
-		// uppr bound of the range for secret number (inclusive)
-		int endRange = 100;
-		NumberGuess numberGuess = new NumberGuess(1, 100, 10);
+	/**
+	 * interacts with the user and enable the user to play the game
+	 * 
+	 * @param numberGuess
+	 *            the instance that holds the secret number and other data for
+	 *            the game and performs guesses on the secret number
+	 * @param scanner
+	 */
+	public static void playGame(NumberGuess numberGuess, Scanner scanner) {
 		int userGuess = 0;
-		boolean isGuessHit = false;
 		// to determine if user wants to continue playing or end the game
 		String userResponse = " ";
 		boolean isEndGame = false;
 
-		System.out.println("Number Guessing game");
-		System.out.println("Range: " + numberGuess.rangeStart + " to"
-				+ numberGuess.rangeEnd);
 		System.out.println("Please enter your guess");
-
 		try {
 			do {
 				try {
 					userGuess = scanner.nextInt();
 
-					if (numberGuess.guessNumber(userGuess)) {
-						isGuessHit = true;
-					} else {
+					numberGuess.guessNumber(userGuess);
+
+					// if guess does not hit the random (secret) number
+					if (!numberGuess.isGuessHit) {
 						System.out
 								.println("Wrong guess. Press n to end or any other key to try again");
 						// user input that determines if he wants to continue
@@ -66,14 +64,24 @@ public class NumberGuessGame {
 					scanner.nextLine();
 				}
 
-			} while (!isGuessHit && !isEndGame);
+			} while (!numberGuess.isGuessHit && !isEndGame);
 
 		} finally {
 			scanner.close();
 		}
 
+	}
+
+	/**
+	 * shows the result of the game as the user loses or wins the game
+	 * 
+	 * @param numberGuess
+	 *            the instance that holds the secret number and other data for
+	 *            the game and performs guesses on the secret number
+	 */
+	public static void showResult(NumberGuess numberGuess) {
 		// if user guess hit the secret number
-		if (isGuessHit) {
+		if (numberGuess.isGuessHit) {
 			System.out.println("Congrats you won. you guessed it right");
 			System.out.println("The correct number is:"
 					+ numberGuess.RANDOM_NUMBER);
@@ -84,8 +92,32 @@ public class NumberGuessGame {
 			while (iterator.hasNext()) {
 				System.out.println(iterator.next());
 			}
-
+		} else {
+			System.out.println("Game Over!! you lost");
+			System.out.println("The secret number is:"
+					+ numberGuess.RANDOM_NUMBER);
+			System.out.println("your guesses:");
+			Iterator<Integer> iterator = numberGuess.guesses.iterator();
+			while (iterator.hasNext()) {
+				System.out.println(iterator.next());
+			}
 		}
+	}
+
+	public static void main(String[] args) {
+		Scanner scanner = new Scanner(System.in);
+		// lower bound of the range for the secret number (exclusive)
+		int startRange = 1;
+		// uppr bound of the range for secret number (inclusive)
+		int endRange = 100;
+		NumberGuess numberGuess = new NumberGuess(startRange, endRange, 10);
+		System.out.println("Number Guessing game");
+		System.out.println("Range: " + numberGuess.rangeStart + " to"
+				+ numberGuess.rangeEnd);
+
+		playGame(numberGuess, scanner);
+
+		showResult(numberGuess);
 	}
 }
 
@@ -100,6 +132,7 @@ class NumberGuess {
 	public final int rangeStart;
 	public final int rangeEnd;
 	public final int maxAttemptAllowed;
+	public boolean isGuessHit = false;
 	public Collection<Integer> guesses = null;
 
 	/**
@@ -135,6 +168,7 @@ class NumberGuess {
 		guesses.add(guess);
 
 		if (guess == RANDOM_NUMBER) {
+			isGuessHit = true;
 			return true;
 		}
 		return false;
