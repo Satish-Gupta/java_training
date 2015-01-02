@@ -70,7 +70,7 @@ public class NumberGuessGame {
 						// check if user chose to give up or the maximum allowed
 						// trial have been reached
 						if (userResponse.toLowerCase().equals("n")
-								|| numberGuess.maxAttemptAllowed <= numberGuess.guesses
+								|| numberGuess.MAX_ATTEMPT_ALLOWED <= numberGuess.guesses
 										.size()) {
 							isEndGame = true;
 
