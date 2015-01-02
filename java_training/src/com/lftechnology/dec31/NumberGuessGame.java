@@ -152,7 +152,7 @@ class NumberGuess {
 	public final int RANDOM_NUMBER;
 	public final int rangeStart;
 	public final int rangeEnd;
-	public final int maxAttemptAllowed;
+	public final int MAX_ATTEMPT_ALLOWED;
 	public boolean isGuessHit = false;
 	public Collection<Integer> guesses = null;
 
@@ -164,7 +164,7 @@ class NumberGuess {
 	NumberGuess(int rangeStart, int rangeEnd, int maxAttempAllowed) {
 		this.rangeStart = rangeStart;
 		this.rangeEnd = rangeEnd;
-		this.maxAttemptAllowed = maxAttempAllowed;
+		this.MAX_ATTEMPT_ALLOWED = maxAttempAllowed;
 		RANDOM_NUMBER = generateRandomNumber();
 		guesses = new LinkedList<Integer>();
 	}
