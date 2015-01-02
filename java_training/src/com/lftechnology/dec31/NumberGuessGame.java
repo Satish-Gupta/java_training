@@ -30,6 +30,11 @@ public class NumberGuessGame {
 		// to determine if user wants to continue playing or end the game
 		String userResponse = " ";
 		boolean isEndGame = false;
+		/*
+		 * to determine if the user guess is correct (0), greater than(1) or
+		 * less than(-1)
+		 */
+		int guessState = 0;
 
 		System.out.println("Please enter your guess");
 		try {
@@ -37,17 +42,33 @@ public class NumberGuessGame {
 				try {
 					userGuess = scanner.nextInt();
 
-					numberGuess.guessNumber(userGuess);
+					guessState = numberGuess.guessNumber(userGuess);
 
-					// if guess does not hit the random (secret) number
-					if (!numberGuess.isGuessHit) {
+					// if guess does equal to the random (secret) number
+					if (guessState == 0) {
+						numberGuess.isGuessHit = true;
+					} else {
+						System.out.println("Wrong guess.");
+
+						// check if user guess is less than the secret number
+						if (guessState == -1) {
+							System.out
+									.println("your guess is less than the secret number");
+
+							// check if user guess is greater than the secret
+							// number
+						} else if (guessState == 1) {
+							System.out
+									.println("your guess is greater than the secret number");
+						}
 						System.out
-								.println("Wrong guess. Press n to end or any other key to try again");
+								.println("Press n to end or any other key to try again");
 						// user input that determines if he wants to continue
 						// guessing or give up
 						userResponse = scanner.next();
 
-						// check if user chose to give up
+						// check if user chose to give up or the maximum allowed
+						// trial have been reached
 						if (userResponse.toLowerCase().equals("n")
 								|| numberGuess.maxAttemptAllowed <= numberGuess.guesses
 										.size()) {
@@ -64,7 +85,7 @@ public class NumberGuessGame {
 					scanner.nextLine();
 				}
 
-			} while (!numberGuess.isGuessHit && !isEndGame);
+			} while (guessState != 0 && !isEndGame);
 
 		} finally {
 			scanner.close();
@@ -80,7 +101,7 @@ public class NumberGuessGame {
 	 *            the game and performs guesses on the secret number
 	 */
 	public static void showResult(NumberGuess numberGuess) {
-		// if user guess hit the secret number
+		// if user guess hits the secret number
 		if (numberGuess.isGuessHit) {
 			System.out.println("Congrats you won. you guessed it right");
 			System.out.println("The correct number is:"
@@ -164,13 +185,14 @@ class NumberGuess {
 	 *            the user guess for the random (secret) number
 	 * @return true if the user guess was right else false
 	 */
-	public boolean guessNumber(int guess) {
+	public int guessNumber(int guess) {
 		guesses.add(guess);
 
-		if (guess == RANDOM_NUMBER) {
-			isGuessHit = true;
-			return true;
+		if (guess > RANDOM_NUMBER) {
+			return 1;
+		} else if (guess < RANDOM_NUMBER) {
+			return -1;
 		}
-		return false;
+		return 0;
 	}
 }
