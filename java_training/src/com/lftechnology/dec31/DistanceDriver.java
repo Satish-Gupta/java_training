@@ -27,19 +27,22 @@ public class DistanceDriver {
 		System.out.println("Enter the data for distance1");
 		feet = getFeetInput();
 		inches = getInchesInput();
-
 		Distance distance1 = new Distance();
-		distance1.setData(feet, inches);
-		distance1.display();
-
-		System.out.println("\nEnter the data for distance2");
-		feet = getFeetInput();
-		inches = getInchesInput();
-
 		Distance distance2 = new Distance();
-		distance2.setData(feet, inches);
-		distance2.display();
+		try {
 
+			distance1.setData(feet, inches);
+			distance1.display();
+
+			System.out.println("\nEnter the data for distance2");
+			feet = getFeetInput();
+			inches = getInchesInput();
+
+			distance2.setData(feet, inches);
+			distance2.display();
+		} finally {
+			scanner.close();
+		}
 		System.out.println("\nAdding two distances:");
 		Distance resultantDistance = distance1.addDistance(distance2);
 
@@ -155,23 +158,42 @@ class Distance {
 		this.inches = inches;
 	}
 
+	/**
+	 * @return feet value of distance
+	 */
 	public int getFeet() {
 		return feet;
 	}
 
+	/**
+	 * @return inches value of distance
+	 */
 	public float getInches() {
 		return inches;
 	}
 
+	/**
+	 * dispalys feet value and inches value of distance
+	 */
 	public void display() {
 		System.out.println(feet + " feet" + inches + "inches");
 	}
 
 	// converts feet and inches value into inches only and returns the same
+	/**
+	 * @return inches equivalent to distance represented by feets and inches.
+	 */
 	public float getInInches() {
 		return feet * 12 + inches;
 	}
 
+	/**
+	 * add two distances represented in feets and inches and returns the result
+	 * as a distance represented in feet and inches
+	 * 
+	 * @param distance
+	 * @return
+	 */
 	public Distance addDistance(Distance distance) {
 		float inchesSum = this.getInInches() + distance.getInInches();
 		int feet = (int) inchesSum / 12;
@@ -183,6 +205,14 @@ class Distance {
 		return resultantDistance;
 	}
 
+	/**
+	 * compares two distance represented in feets and inches
+	 * 
+	 * @param distance
+	 *            to be compared with the invoking objec
+	 * @return comparision result - 0 if equal, -1 if invoking object distance
+	 *         is less and 1 if the invoking object is greater
+	 */
 	public int compareDistance(Distance distance) {
 		float distance1Inches = this.getInInches();
 		float distance2Inches = distance.getInInches();
