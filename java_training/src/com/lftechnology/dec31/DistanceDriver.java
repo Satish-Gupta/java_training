@@ -26,7 +26,7 @@ public class DistanceDriver {
 
 		System.out.println("Enter the data for distance1");
 		feet = getFeetInput();
-		inches = getInchesInput();
+		inches = getInchInput();
 		Distance distance1 = new Distance();
 		Distance distance2 = new Distance();
 		try {
@@ -36,7 +36,7 @@ public class DistanceDriver {
 
 			System.out.println("\nEnter the data for distance2");
 			feet = getFeetInput();
-			inches = getInchesInput();
+			inches = getInchInput();
 
 			distance2.setData(feet, inches);
 			distance2.display();
@@ -111,7 +111,7 @@ public class DistanceDriver {
 	 * 
 	 * @return
 	 */
-	public static float getInchesInput() {
+	public static float getInchInput() {
 		System.out.println("Enter distance(positive number) in inches");
 		float inches = 0;
 		boolean isInputValid = true;
@@ -125,9 +125,6 @@ public class DistanceDriver {
 							.println("Wrong input. Please enter a positive numerical value.");
 
 					isInputValid = false;
-				} else if (inches > 11) {
-					isInputValid = false;
-					System.out.print("Please enter value less than 12");
 				}
 			} catch (InputMismatchException exception) {
 				System.out
@@ -153,9 +150,15 @@ class Distance {
 	private int feet = 0;
 	private float inches = 0;
 
+	/**
+	 * @param feet
+	 *            feet value of distance represented as feet and inches
+	 * @param inches
+	 *            inch value of distance represented as feet and inches
+	 */
 	public void setData(int feet, float inches) {
-		this.feet = feet;
-		this.inches = inches;
+		this.feet = feet + (int) inches / 12;
+		this.inches = inches % 12;
 	}
 
 	/**
