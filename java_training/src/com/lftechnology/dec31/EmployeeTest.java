@@ -28,7 +28,7 @@ public class EmployeeTest {
 
 		System.out.println("\nAfter giving the 10 % raise in slary");
 		salaryRaise = 10;
-		employee1.raiseSalary(10);
+		employee1.raiseSalary(salaryRaise);
 		employee1.display();
 		System.out.println("Yearly Salary: "
 				+ employee1.calculateYearlySalary());

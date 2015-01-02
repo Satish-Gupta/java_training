@@ -97,6 +97,9 @@ class Date {
 		return day;
 	}
 
+	/**
+	 * displays date in day/month/year format
+	 */
 	public void displayDate() {
 		System.out.println(day + "/" + month + "/" + year);
 	}
