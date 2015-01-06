@@ -4,16 +4,15 @@ import java.util.Scanner;
 import java.util.logging.Logger;
 
 /**
- * Try to do a program that constantly prompts the user to enter something
- * (using the Scanner class) until the user enters a specific word (such as quit
- * for example)
+ * Try to do a program that constantly prompts the user to enter something (using the Scanner class) until the user enters a specific word
+ * (such as quit for example)
  * 
  * @author satish
  * 
  */
 public class UserInput {
 	private static Scanner scanner = new Scanner(System.in);
-	private static Logger logger = Logger.getLogger("myLogger");
+	private static Logger logger = Logger.getLogger(UserInput.class.getName());
 
 	public static void main(String[] args) {
 		String userInput = "";

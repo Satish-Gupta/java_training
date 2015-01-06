@@ -10,7 +10,8 @@ import java.util.logging.Logger;
  * 
  */
 public class ArrayContentMatch {
-	private static Logger logger = Logger.getLogger("myLogger");
+	private static Logger logger = Logger.getLogger(ArrayContentMatch.class
+			.getName());
 
 	/**
 	 * checks if two arrays have same content irrespective of the order

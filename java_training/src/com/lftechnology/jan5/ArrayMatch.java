@@ -9,7 +9,7 @@ import java.util.logging.Logger;
  * 
  */
 public class ArrayMatch {
-	private static Logger logger = Logger.getLogger("myLogger");
+	private static Logger logger = Logger.getLogger(ArrayMatch.class.getName());
 
 	/**
 	 * checks if two arrays have same content and in same order

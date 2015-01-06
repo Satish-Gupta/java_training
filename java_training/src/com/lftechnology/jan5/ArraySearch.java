@@ -12,7 +12,8 @@ import java.util.logging.Logger;
  */
 public class ArraySearch {
 	private static Scanner scanner = new Scanner(System.in);
-	private static Logger logger = Logger.getLogger("mylogger");
+	private static Logger logger = Logger
+			.getLogger(ArraySearch.class.getName());
 	private static String[] items = null;
 	private static String key = "";
 
