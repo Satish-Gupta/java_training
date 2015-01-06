@@ -16,11 +16,12 @@ public class UserInput {
 
 	public static void main(String[] args) {
 		String userInput = "";
+		final String QUIT = "quit";
 		try {
 			do {
 				System.out.println("Enter something or enter quit to exit");
 				userInput = scanner.nextLine();
-				if (userInput.equalsIgnoreCase("quit")) {
+				if (userInput.equalsIgnoreCase(QUIT)) {
 					break;
 				}
 				logger.info(userInput + " Entered");
