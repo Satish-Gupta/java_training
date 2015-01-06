@@ -3,26 +3,22 @@ package com.lftechnology.jan5;
 import java.util.logging.Logger;
 
 /**
- * Compare if two arrays have the same content (doesn't matter if they aren't in
- * order)
+ * Compare if two arrays have the same content (doesn't matter if they aren't in order)
  * 
  * @author satish
  * 
  */
 public class ArrayContentMatch {
-	private static Logger logger = Logger.getLogger(ArrayContentMatch.class
-			.getName());
+	private static Logger logger = Logger.getLogger(ArrayContentMatch.class.getName());
 
 	/**
 	 * checks if two arrays have same content irrespective of the order
 	 * 
 	 * @param array1
 	 * @param array2
-	 * @return true if two arrays have same content and in same order else
-	 *         return false
+	 * @return true if two arrays have same content and in same order else return false
 	 */
-	private static boolean arrayMatch(String[] comparisionArray1,
-			String[] comparisionArray2) {
+	private static boolean arrayMatch(String[] comparisionArray1, String[] comparisionArray2) {
 		int array1Length = comparisionArray1.length;
 		int array2Length = comparisionArray2.length;
 		// to track the count of matches between two arrays
@@ -32,25 +28,26 @@ public class ArrayContentMatch {
 			return false;
 		}
 		/*
-		 * clone array 2 so that it can be marked with null after it has been
-		 * matched with an element avoiding it to match again for another same
-		 * value element
+		 * clone array 2 so that it can be marked with null after it has been matched with an element avoiding it to match again for another
+		 * same value element
 		 */
 		String[] tempArray = comparisionArray2.clone();
 
 		for (int i = 0; i < array1Length; i++) {
 			for (int j = 0; j < array2Length; j++) {
 
-				if (comparisionArray1[i] != null
-						&& comparisionArray1[i].equals(tempArray[j])) {
+				if (comparisionArray1[i] != null && comparisionArray1[i].equals(tempArray[j])) {
 					/*
-					 * mark the element that has already been matched with some
-					 * element
+					 * mark the element that has already been matched with some element
 					 */
 					tempArray[j] = null;
 					elementMatchCount++;
 					break;
 				}
+			}
+			// if elementMatchCount has not incremented in this iteration of i
+			if (elementMatchCount != i + 1) {
+				break;
 			}
 		}
 		/* check if the match count was equal to length of any one array */
@@ -61,7 +58,7 @@ public class ArrayContentMatch {
 	}
 
 	public static void main(String[] args) {
-		String[] myArray = { "aa", "dd", "cc", "bb" };
+		String[] myArray = { "aa", "dfda", "cc", "bb" };
 		String[] comparisionArrray = { "aa", "dd", "cc", "bb" };
 		boolean isArrayMatch = false;
 
