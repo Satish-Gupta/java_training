@@ -12,8 +12,7 @@ import java.util.logging.Logger;
  */
 public class ArraySearch {
 	private static Scanner scanner = new Scanner(System.in);
-	private static Logger logger = Logger
-			.getLogger(ArraySearch.class.getName());
+	private static final Logger LOGGER = Logger.getLogger(ArraySearch.class.getName());
 	private static String[] items = null;
 	private static String key = "";
 
@@ -45,7 +44,7 @@ public class ArraySearch {
 			} catch (InputMismatchException exception) {
 				isInputValid = false;
 				scanner.nextLine();
-				logger.warning("Wrong input. Please enter a number");
+				LOGGER.warning("Wrong input. Please enter a number");
 			}
 		} while (!isInputValid);
 
@@ -66,11 +65,11 @@ public class ArraySearch {
 		for (int i = 0; i < items.length; i++) {
 			if (items[i].equalsIgnoreCase(key)) {
 				isFound = true;
-				logger.info("key: " + key + " found at:" + (i + 1));
+				LOGGER.info("key: " + key + " found at:" + (i + 1));
 			}
 		}
 		if (!isFound) {
-			logger.info("key: " + key + " not found");
+			LOGGER.info("key: " + key + " not found");
 		}
 	}
 }

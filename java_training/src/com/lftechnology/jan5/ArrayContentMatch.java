@@ -9,7 +9,7 @@ import java.util.logging.Logger;
  * 
  */
 public class ArrayContentMatch {
-	private static Logger logger = Logger.getLogger(ArrayContentMatch.class.getName());
+	private static final Logger LOGGER = Logger.getLogger(ArrayContentMatch.class.getName());
 
 	/**
 	 * checks if two arrays have same content irrespective of the order
@@ -64,9 +64,9 @@ public class ArrayContentMatch {
 
 		isArrayMatch = arrayMatch(myArray, comparisionArrray);
 		if (isArrayMatch) {
-			logger.info("The given two arrays match with each other ");
+			LOGGER.info("The given two arrays match with each other ");
 		} else {
-			logger.info("The given two arrays does not match with each other ");
+			LOGGER.info("The given two arrays does not match with each other ");
 		}
 	}
 

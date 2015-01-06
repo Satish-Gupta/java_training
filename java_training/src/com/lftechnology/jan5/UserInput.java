@@ -11,8 +11,8 @@ import java.util.logging.Logger;
  * 
  */
 public class UserInput {
-	private static Scanner scanner = new Scanner(System.in);
-	private static Logger logger = Logger.getLogger(UserInput.class.getName());
+	private static final Scanner scanner = new Scanner(System.in);
+	private static final Logger LOGGER = Logger.getLogger(UserInput.class.getName());
 
 	public static void main(String[] args) {
 		String userInput = "";
@@ -24,7 +24,7 @@ public class UserInput {
 				if (userInput.equalsIgnoreCase(QUIT)) {
 					break;
 				}
-				logger.info(userInput + " Entered");
+				LOGGER.info(userInput + " Entered");
 			} while (true);
 		} finally {
 			scanner.close();

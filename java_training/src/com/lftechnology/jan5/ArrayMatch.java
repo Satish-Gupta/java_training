@@ -9,18 +9,16 @@ import java.util.logging.Logger;
  * 
  */
 public class ArrayMatch {
-	private static Logger logger = Logger.getLogger(ArrayMatch.class.getName());
+	private static final Logger LOGGER = Logger.getLogger(ArrayMatch.class.getName());
 
 	/**
 	 * checks if two arrays have same content and in same order
 	 * 
 	 * @param array1
 	 * @param array2
-	 * @return true if two arrays have same content and in same order else
-	 *         return false
+	 * @return true if two arrays have same content and in same order else return false
 	 */
-	private static boolean arrayMatch(String[] comparisionArray1,
-			String[] comparisionArray2) {
+	private static boolean arrayMatch(String[] comparisionArray1, String[] comparisionArray2) {
 		int array1Length = comparisionArray1.length;
 		int array2Length = comparisionArray2.length;
 		if (array1Length != array2Length) {
@@ -45,9 +43,9 @@ public class ArrayMatch {
 
 		isArrayMatch = arrayMatch(myArray, comparisionArray);
 		if (isArrayMatch) {
-			logger.info("The given two arrays match with each other ");
+			LOGGER.info("The given two arrays match with each other ");
 		} else {
-			logger.info("The given two arrays does not match with each other ");
+			LOGGER.info("The given two arrays does not match with each other ");
 		}
 	}
 
