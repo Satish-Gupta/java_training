@@ -14,8 +14,8 @@ public class ArrayMatch {
 	/**
 	 * checks if two arrays have same content and in same order
 	 * 
-	 * @param array1
-	 * @param array2
+	 * @param comparisionArray1
+	 * @param comparisionArray2
 	 * @return true if two arrays have same content and in same order else return false
 	 */
 	private static boolean arrayMatch(String[] comparisionArray1, String[] comparisionArray2) {

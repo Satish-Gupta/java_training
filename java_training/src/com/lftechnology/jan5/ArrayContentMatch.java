@@ -1,5 +1,6 @@
 package com.lftechnology.jan5;
 
+import java.util.Arrays;
 import java.util.logging.Logger;
 
 /**
@@ -21,45 +22,36 @@ public class ArrayContentMatch {
 	private static boolean arrayMatch(String[] comparisionArray1, String[] comparisionArray2) {
 		int array1Length = comparisionArray1.length;
 		int array2Length = comparisionArray2.length;
-		// to track the count of matches between two arrays
-		int elementMatchCount = 0;
 
 		if (array1Length != array2Length) {
 			return false;
 		}
-		/*
-		 * clone array 2 so that it can be marked with null after it has been matched with an element avoiding it to match again for another
-		 * same value element
-		 */
-		String[] tempArray = comparisionArray2.clone();
 
-		for (int i = 0; i < array1Length; i++) {
-			for (int j = 0; j < array2Length; j++) {
+		// here the sort won't be correct if the arrays contain numerical values
+		// which we don't care since if the two arrays have same elements in different order
+		// the result for both will be same irrespective of the correctness of the sort
+		Arrays.sort(comparisionArray1);
+		Arrays.sort(comparisionArray2);
 
-				if (comparisionArray1[i] != null && comparisionArray1[i].equals(tempArray[j])) {
-					/*
-					 * mark the element that has already been matched with some element
-					 */
-					tempArray[j] = null;
-					elementMatchCount++;
-					break;
-				}
-			}
-			// if elementMatchCount has not incremented in this iteration of i
-			if (elementMatchCount != i + 1) {
+		int i = 0;
+		for (; i < array1Length; i++) {
+			if (!comparisionArray1[i].equals(comparisionArray2[i])) {
 				break;
 			}
 		}
-		/* check if the match count was equal to length of any one array */
-		if (elementMatchCount == array1Length) {
+		/*
+		 * check if the i is equal to length of any one array which determines if the sorted array contents matched till the end of teh
+		 * arrays
+		 */
+		if (i == array1Length) {
 			return true;
 		}
 		return false;
 	}
 
 	public static void main(String[] args) {
-		String[] myArray = { "aa", "dfda", "cc", "bb" };
-		String[] comparisionArrray = { "aa", "dd", "cc", "bb" };
+		String[] myArray = { "aa", "5", "dd", "31", "cc", "bb" };
+		String[] comparisionArrray = { "aa", "31", "bb", "5", "cc", "dd" };
 		boolean isArrayMatch = false;
 
 		isArrayMatch = arrayMatch(myArray, comparisionArrray);
