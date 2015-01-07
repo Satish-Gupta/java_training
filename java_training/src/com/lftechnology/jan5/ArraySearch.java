@@ -44,7 +44,7 @@ public class ArraySearch {
 			} catch (InputMismatchException exception) {
 				isInputValid = false;
 				scanner.nextLine();
-				LOGGER.warning("Wrong input. Please enter a number");
+				LOGGER.severe("Wrong input. Please enter a number");
 			}
 		} while (!isInputValid);
 
