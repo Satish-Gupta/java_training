@@ -7,13 +7,14 @@ package com.lftechnology.jan7;
  * 
  */
 public class DirectoryCreationFailed extends Exception {
+	private static final long serialVersionUID = -1713870792059119784L;
 	private static String message = "the requested directory creation failed";
 
 	public DirectoryCreationFailed() {
 	}
 
-	DirectoryCreationFailed(String message) {
-		this.message = message;
+	DirectoryCreationFailed(String messageStr) {
+		message = messageStr;
 	}
 
 	@Override
