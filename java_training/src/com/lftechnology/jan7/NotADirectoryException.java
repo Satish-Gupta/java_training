@@ -7,13 +7,14 @@ package com.lftechnology.jan7;
  * 
  */
 public class NotADirectoryException extends Exception {
+	private static final long serialVersionUID = 5354192230194282790L;
 	private static String message = "the given resource is not a directory";
 
 	public NotADirectoryException() {
 	}
 
-	NotADirectoryException(String message) {
-		this.message = message;
+	NotADirectoryException(String messageStr) {
+		message = messageStr;
 	}
 
 	@Override

@@ -7,13 +7,14 @@ package com.lftechnology.jan7;
  * 
  */
 public class RenameFailedException extends Exception {
+	private static final long serialVersionUID = 2890375616788248737L;
 	private static String message = "the requested file could not be renamed";
 
 	public RenameFailedException() {
 	}
 
-	RenameFailedException(String message) {
-		this.message = message;
+	RenameFailedException(String messageStr) {
+		message = messageStr;
 	}
 
 	@Override
