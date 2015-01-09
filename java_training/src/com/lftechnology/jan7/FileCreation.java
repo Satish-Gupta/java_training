@@ -13,26 +13,29 @@ import java.util.logging.Logger;
  * 
  */
 public class FileCreation {
-	private static final Logger logger = Logger.getLogger(FileCreation.class.getName());
+	private static final Logger LOGGER = Logger.getLogger(FileCreation.class.getName());
 
 	public static void main(String[] args) {
 		String osName = System.getProperty("os.name");
 		String filePath = "";
 		String userHome = System.getProperty("user.home");
+
 		if (osName.equals("Linux")) {
 			filePath = userHome + "/java/abc.txt";
 		} else {
 			filePath = userHome + "\\java\\abc.txt";
 		}
+
 		File file = new File(filePath);
 		try {
 			FileUtils.createFile(file);
 		} catch (SecurityException | IOException e) {
-			logger.log(Level.SEVERE, "Exception:{0} class:{1}, cause:{2}", new Object[] { e.getMessage(), e.getClass(), e.getCause() });
+			LOGGER.log(Level.SEVERE, "Exception:{0} class:{1}, cause:{2}", new Object[] { e.getMessage(), e.getClass(), e.getCause() });
 		} catch (Exception e) {
-			logger.log(Level.SEVERE, "Exception:{0} class:{1}, cause:{2}", new Object[] { e.getMessage(), e.getClass(), e.getCause() });
+			LOGGER.log(Level.SEVERE, "Exception:{0} class:{1}, cause:{2}", new Object[] { e.getMessage(), e.getClass(), e.getCause() });
 		}
-		logger.log(Level.INFO, "file-{0}: exists-{1}, isDirectory-{2}, isFile-{3}, fileName-{3}", new Object[] { file.getAbsolutePath(),
-				file.exists(), file.isDirectory(), file.isFile(), file.getAbsolutePath() });
+
+		LOGGER.log(Level.INFO, "file-{0}: exists-{1}, isDirectory-{2}, isFile-{3}, fileName-{4}",
+				new Object[] { file.getName(), file.exists(), file.isDirectory(), file.isFile(), file.getAbsolutePath() });
 	}
 }

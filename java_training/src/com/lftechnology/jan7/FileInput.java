@@ -16,23 +16,25 @@ import java.util.logging.Logger;
  * <li>b. The floating point number read is 33.44</li>
  * <li>c. The String read is "Peter"</li>
  * <li>d. Hi! Peter, the sum of 12 and 33.44 is 45.44</li>
- * <ul>
+ * </ul>
  * 
  * @author satish
  * 
  */
 public class FileInput {
-	private static final Logger logger = Logger.getLogger(FileUtils.class.getName());
+	private static final Logger LOGGER = Logger.getLogger(FileUtils.class.getName());
 
 	public static void main(String[] args) {
 		String osName = System.getProperty("os.name");
 		String filePath = "";
 		String userHome = System.getProperty("user.home");
+
 		if (osName.equals("Linux")) {
 			filePath = userHome + "/java/myDirectory/in.txt";
 		} else {
 			filePath = userHome + "\\java\\myDirectory\\in.txt";
 		}
+
 		File file = new File(filePath);
 		List<Object> contents = new ArrayList<Object>();
 		List<Integer> intValues = new ArrayList<Integer>();
@@ -59,7 +61,7 @@ public class FileInput {
 				intValueStrBuilder.append(value + " ");
 				sum += value;
 			}
-			logger.log(Level.INFO, "The integer read are {0}", intValueStrBuilder);
+			LOGGER.log(Level.INFO, "The integer read are {0}", intValueStrBuilder);
 
 			// for holding all the float values in a single String
 			StringBuilder floatValuesStrBuilder = new StringBuilder();
@@ -67,18 +69,17 @@ public class FileInput {
 				floatValuesStrBuilder.append(value + " ");
 				sum += value;
 			}
-			logger.log(Level.INFO, "The floating point number read are {0}", floatValuesStrBuilder);
+			LOGGER.log(Level.INFO, "The floating point number read are {0}", floatValuesStrBuilder);
 
 			StringBuilder stringBuilder = new StringBuilder();
 			for (String value : stringValues) {
 				stringBuilder.append(value + ", ");
 			}
-			logger.log(Level.INFO, "The string read are {0}", stringBuilder);
-			logger.log(Level.INFO, "Hi! {0} the sum of {1} {2} is {3}", new Object[] { stringBuilder, intValueStrBuilder,
+			LOGGER.log(Level.INFO, "The string read are {0}", stringBuilder);
+			LOGGER.log(Level.INFO, "Hi! {0} the sum of {1} {2} is {3}", new Object[] { stringBuilder, intValueStrBuilder,
 					floatValuesStrBuilder, sum });
 		} catch (FileNotFoundException e) {
-			logger.log(Level.SEVERE, "Exception:{0} class:{1}, cause:{2}", new Object[] { e.getMessage(), e.getClass(), e.getCause() });
+			LOGGER.log(Level.SEVERE, "Exception:{0} class:{1}, cause:{2}", new Object[] { e.getMessage(), e.getClass(), e.getCause() });
 		}
-
 	}
 }
