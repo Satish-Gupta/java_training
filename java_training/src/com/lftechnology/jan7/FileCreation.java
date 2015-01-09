@@ -16,7 +16,14 @@ public class FileCreation {
 	private static final Logger logger = Logger.getLogger(FileCreation.class.getName());
 
 	public static void main(String[] args) {
-		String filePath = "/home/satish/java/abc.txt";
+		String osName = System.getProperty("os.name");
+		String filePath = "";
+		String userHome = System.getProperty("user.home");
+		if (osName.equals("Linux")) {
+			filePath = userHome + "/java/abc.txt";
+		} else {
+			filePath = userHome + "\\java\\abc.txt";
+		}
 		File file = new File(filePath);
 		try {
 			FileUtils.createFile(file);

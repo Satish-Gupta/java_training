@@ -14,7 +14,8 @@ public class DirectoryCreation {
 	private static final Logger logger = Logger.getLogger(DirectoryCreation.class.getName());
 
 	public static void main(String[] args) {
-		File file = new File("/home/satish/java/myDirectory");
+		String filePath = "/home/satish/java/myDirectory";
+		File file = new File(filePath);
 
 		try {
 			FileUtils.createDirectory(file);
