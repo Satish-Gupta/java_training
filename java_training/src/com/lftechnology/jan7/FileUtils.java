@@ -28,12 +28,13 @@ public class FileUtils {
 	 * @return true if the named file does not exist and was successfully created; false if the named file already exists
 	 * @throws SecurityException
 	 * @throws IOException
-	 * @throws Exception
+	 * @throws {@link NotAFileException}
 	 */
-	public static boolean createFile(File file) throws SecurityException, IOException, Exception {
+	public static boolean createFile(File file) throws SecurityException, IOException, NotAFileException {
 		boolean isFileCreated = false;
+		final String NOT_A_FILE_MSG = "requested resource " + file.getAbsolutePath() + "is not a file resource";
 		if (file.isDirectory()) {
-			throw new Exception("requested resource is not a valid file resource");
+			throw new NotAFileException(NOT_A_FILE_MSG);
 		}
 		isFileCreated = file.createNewFile();
 		if (isFileCreated) {
@@ -49,9 +50,11 @@ public class FileUtils {
 	 * 
 	 * @param directory
 	 * @return true if and only if the directory was created; false otherwise
-	 * @throws Exception
+	 * @throws {@linkNotADirectoryException}
+	 * @throws {@link DirectoryCreationFailedException}
 	 */
-	public static boolean createDirectory(File directory) throws Exception {
+	public static boolean createDirectory(File directory) throws NotADirectoryException, DirectoryCreationFailed,
+			FileAlreadyExistsException {
 		boolean isDirectoryCreated = false;
 		final String FILE_EXIST_MSG = "directory " + directory.getAbsolutePath() + " already exist";
 		final String DIR_CREATION_FAILED =
@@ -59,7 +62,7 @@ public class FileUtils {
 		if (directory.isFile()) {
 			final String NOT_DIRECTOY_MSG =
 					"Requested directory deletion but passed the requested resource" + directory.getAbsolutePath() + "is a file";
-			throw new Exception(NOT_DIRECTOY_MSG);
+			throw new NotADirectoryException(NOT_DIRECTOY_MSG);
 		}
 		if (directory.exists()) {
 			throw new FileAlreadyExistsException(FILE_EXIST_MSG);
@@ -68,28 +71,33 @@ public class FileUtils {
 		if (isDirectoryCreated) {
 			logger.log(Level.INFO, "Requested directory {0} created at {1} ", new Object[] { directory.getName(), directory.getParent() });
 		} else {
-			throw new Exception(DIR_CREATION_FAILED);
+			throw new DirectoryCreationFailed(DIR_CREATION_FAILED);
 		}
 		return isDirectoryCreated;
 	}
 
 	/**
+	 * 
 	 * @param oldFile
 	 *            : file that is to be renamed
 	 * @param newFileStr
 	 *            : the new fileName or path to the old file with the new file Name at the end of the path
 	 * @return
+	 * @throws IOException
 	 * @throws FileNotFoundException
 	 * @throws FileAlreadyExistsException
-	 * @throws Exception
+	 * @throws {@link RenameFailedException}
 	 */
-	public static boolean renameFile(File oldFile, String newFileStr) throws FileNotFoundException, FileAlreadyExistsException, Exception {
+	public static boolean renameFile(File oldFile, String newFileStr) throws RenameFailedException, IOException {
 		File newFile = new File(newFileStr);
 		Path oldFilePath = oldFile.toPath();
 		Path newFilePath = oldFilePath.getParent().resolve(newFileStr);
 
 		final String FILE_NOT_fOUND_MSG = "file" + oldFile.getAbsolutePath() + "could not be found";
 		final String FILE_EXIST_MSG = "file" + newFile.getAbsolutePath() + " already exist";
+		final String FILE_RENAME_FAILED_MSG =
+				"file " + oldFile.getAbsolutePath() + "could not be renamed since file with new Name " + newFile.getName()
+						+ "exist at that path";
 		if (!oldFile.exists()) {
 			throw new FileNotFoundException(FILE_NOT_fOUND_MSG);
 		}
@@ -103,8 +111,7 @@ public class FileUtils {
 			logger.log(Level.INFO, "File {0} renamed to {1}: ", new Object[] { oldFile.getAbsolutePath(), newFile.getAbsoluteFile() });
 			return true;
 		} else {
-			logger.log(Level.SEVERE, "cannot rename since file {0} already exists", newFile.getAbsolutePath());
-			throw new Exception("requested File " + oldFile.getName() + " could not be reanmed");
+			throw new RenameFailedException(FILE_RENAME_FAILED_MSG);
 		}
 	}
 
