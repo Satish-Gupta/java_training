@@ -1,6 +1,7 @@
 package com.lftechnology.jan7;
 
 import java.io.File;
+import java.nio.file.FileAlreadyExistsException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -11,16 +12,24 @@ import java.util.logging.Logger;
  * 
  */
 public class DirectoryCreation {
-	private static final Logger logger = Logger.getLogger(DirectoryCreation.class.getName());
+	private static final Logger LOGGER = Logger.getLogger(DirectoryCreation.class.getName());
 
 	public static void main(String[] args) {
-		String filePath = "/home/satish/java/myDirectory";
-		File file = new File(filePath);
+		String osName = System.getProperty("os.name");
+		String filePath = "";
+		String userHome = System.getProperty("user.home");
 
+		if (osName.equals("Linux")) {
+			filePath = userHome + "/java/myDirectory";
+		} else {
+			filePath = userHome + "\\java\\myDirectory";
+		}
+
+		File file = new File(filePath);
 		try {
 			FileUtils.createDirectory(file);
-		} catch (Exception e) {
-			logger.log(Level.SEVERE, "Exception:{0} class:{1}, cause:{2}", new Object[] { e.getMessage(), e.getClass(), e.getCause() });
+		} catch (FileAlreadyExistsException | NotADirectoryException | DirectoryCreationFailed e) {
+			LOGGER.log(Level.SEVERE, "Exception:{0} class:{1}, cause:{2}", new Object[] { e.getMessage(), e.getClass(), e.getCause() });
 		}
 
 	}
