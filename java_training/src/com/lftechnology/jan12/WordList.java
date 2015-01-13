@@ -4,6 +4,13 @@ import java.util.Arrays;
 import java.util.Iterator;
 import java.util.List;
 
+/**
+ * This class represents a list of words and allows operations such as adding elements to the list,merging two word list and removing every
+ * second element.
+ * 
+ * @author satish<satishgupta@lftechnology.com>
+ * 
+ */
 public class WordList {
 	private List<String> words = null;
 
@@ -38,7 +45,7 @@ public class WordList {
 	}
 
 	/**
-	 * Add {@link String} element to this {@link WordList}
+	 * Adds {@link String} element to this {@link WordList}
 	 * 
 	 * @param element
 	 *            the element to be added
