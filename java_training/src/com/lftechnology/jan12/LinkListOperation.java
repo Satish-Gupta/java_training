@@ -38,7 +38,7 @@ public class LinkListOperation {
 		LOGGER.log(Level.INFO, "List one:{0}", one);
 		LOGGER.log(Level.INFO, "List two:{0}", two);
 
-		LOGGER.log(Level.INFO, "removing every second element from one");
+		LOGGER.log(Level.INFO, "removing every second element from two");
 		// remove every second element from second word list
 		two.removeEverySecondWord();
 		LOGGER.log(Level.INFO, "Main words List:{0}", one);
