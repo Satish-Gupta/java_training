@@ -1,6 +1,7 @@
 package com.lftechnology.jan12;
 
-import java.util.LinkedList;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -23,11 +24,10 @@ public class LinkListOperation {
 
 	public static void main(String[] args) {
 
-		final String[] WORD_LIST_ONE = { "one", "two", "three", "four", "five" };
-		final String[] WORD_LIST_TWO = { "six", "seven", "eight", "nine", "ten" };
-
-		WordList one = new WordList(getList(WORD_LIST_ONE));
-		WordList two = new WordList(getList(WORD_LIST_TWO));
+		List<String> WORD_LIST_ONE = new ArrayList<String>(Arrays.asList("one", "two", "three", "four", "five"));
+		List<String> WORD_LIST_TWO = new ArrayList<String>(Arrays.asList("six", "seven", "eight", "nine", "ten"));
+		WordList one = new WordList(WORD_LIST_ONE);
+		WordList two = new WordList(WORD_LIST_TWO);
 
 		LOGGER.log(Level.INFO, "List one: {0}", one);
 		LOGGER.log(Level.INFO, "List two:{0}", two);
@@ -48,21 +48,5 @@ public class LinkListOperation {
 		one.getList().removeAll(two.getList());
 		LOGGER.log(Level.INFO, "Main words List:{0}", one);
 		LOGGER.log(Level.INFO, "Secondary words List:{0}", two);
-	}
-
-	/**
-	 * Creates {@link List} from a String array
-	 * 
-	 * @param words
-	 *            string array for which {@link List} needs to be created
-	 * @return {@link List} containing the string words of the supplied array.
-	 * @author satish<satishgupta@lftechnology.com>
-	 */
-	public static List<String> getList(String[] words) {
-		List<String> wordsList = new LinkedList<String>();
-		for (String word : words) {
-			wordsList.add(word);
-		}
-		return wordsList;
 	}
 }

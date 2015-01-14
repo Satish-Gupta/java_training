@@ -19,7 +19,7 @@ public class WordList {
 	 * 
 	 * @author satish<satishgupta@lftechnology.com>
 	 */
-	WordList() {
+	public WordList() {
 	}
 
 	/**
@@ -29,7 +29,7 @@ public class WordList {
 	 *            {@link List} which contains words for this word List
 	 * @author satish<satishgupta@lftechnology.com>
 	 */
-	WordList(List<String> words) {
+	public WordList(List<String> words) {
 		this.words = words;
 	}
 
