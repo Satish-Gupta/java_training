@@ -34,16 +34,46 @@ public class AutoServiceManagement {
 		LOGGER.log(Level.INFO, "Performing requested Services");
 		for (Service service : servicesRequested) {
 			if (service.equals(wash)) {
-				car.wash();
+				wash(car);
 			} else if (service.equals(wax)) {
-				car.wax();
+				wax(car);
 			} else {
-				car.color();
+				color(car);
 			}
 		}
 		LOGGER.log(Level.INFO, "Car servicing completed");
 		LOGGER.log(Level.INFO, "Clearing the bill");
 		bill.clear();
 		LOGGER.log(Level.INFO, "Total bill amount for this car = {0}", bill.getTotal());
+	}
+
+	/**
+	 * Performs wash operation on this <code>Car</code>
+	 * 
+	 * @author satish
+	 * @param {@link Car} to be washed
+	 */
+	public static void wash(Car car) {
+		LOGGER.info("washing car");
+	}
+
+	/**
+	 * Performs wax operation on this <code>Car</code>
+	 * 
+	 * @author satish
+	 * @param {@link Car} to be poslish with wax
+	 */
+	public static void wax(Car car) {
+		LOGGER.info("waxing car");
+	}
+
+	/**
+	 * Performs color operation on this <code>Car</code>
+	 * 
+	 * @author satish
+	 * @param {@link Car} to be coloured
+	 */
+	public static void color(Car car) {
+		LOGGER.info("coloring car");
 	}
 }

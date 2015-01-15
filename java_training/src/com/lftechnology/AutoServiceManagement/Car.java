@@ -28,32 +28,4 @@ public class Car {
 	public Car(Long serial) {
 		this.serialNo = serial;
 	}
-
-	/**
-	 * Performs wash operation on this <code>Car</code>
-	 * 
-	 * @author satish
-	 */
-	public void wash() {
-		LOGGER.info("washing car");
-	}
-
-	/**
-	 * Performs wax operation on this <code>Car</code>
-	 * 
-	 * @author satish
-	 */
-	public void wax() {
-		LOGGER.info("waxing car");
-	}
-
-	/**
-	 * Performs color operation on this <code>Car</code>
-	 * 
-	 * @author satish
-	 */
-	public void color() {
-		LOGGER.info("coloring car");
-	}
-
 }
