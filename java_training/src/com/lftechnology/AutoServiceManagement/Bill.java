@@ -10,24 +10,25 @@ import java.util.List;
  * 
  */
 public class Bill {
-	private int totalPrice = 0;
+	private float totalPrice = 0;
 	// to do check possible use of Set
-	List<Service> items = new ArrayList<Service>();
+	private List<VehicleService> items = new ArrayList<VehicleService>();
+	private boolean isCleared = false;
 
 	/**
 	 * constructs <code>Bill</code>
 	 * 
-	 * @author satish
+	 * @author satish<satishgupta@lftechnology.com>
 	 */
 	public Bill() {
 	}
 
 	/**
-	 * constructs <code>Bill</code> with for the provided {@link List} of {@link Service}
+	 * constructs <code>Bill</code> with for the provided {@link List} of {@link VehicleService}
 	 * 
-	 * @author satish
+	 * @author satish<satishgupta@lftechnology.com>
 	 */
-	public Bill(List<Service> items) {
+	public Bill(List<VehicleService> items) {
 		this.items = items;
 	}
 
@@ -35,23 +36,24 @@ public class Bill {
 	 * Calculates the total amount for the items in this {@link Bill}
 	 * 
 	 * @return total amount for this {@link Bill}
-	 * @author satish
+	 * @author satish<satishgupta@lftechnology.com>
 	 */
-	public int calculateTotal() {
-		for (Service service : items) {
+	public float calculateTotal() {
+		totalPrice = 0;
+		for (VehicleService service : items) {
 			totalPrice += service.getPrice();
 		}
 		return totalPrice;
 	}
 
 	/**
-	 * Adds {@link Service} item in this {@link Bill}
+	 * Adds {@link VehicleService} item in this {@link Bill}
 	 * 
 	 * @param service
-	 *            {@link Service} being charged for in this {@link Bill}
-	 * @author satish
+	 *            {@link VehicleService} being charged for in this {@link Bill}
+	 * @author satish<satishgupta@lftechnology.com>
 	 */
-	public void addItem(Service service) {
+	public void addItem(VehicleService service) {
 		items.add(service);
 	}
 
@@ -59,18 +61,22 @@ public class Bill {
 	 * Retrives the total amound for this {@link Bill}
 	 * 
 	 * @return total amount for this bill
-	 * @author satish
+	 * @author satish<satishgupta@lftechnology.com>
 	 */
-	public int getTotal() {
+	public float getTotal() {
 		return totalPrice;
 	}
 
 	/**
 	 * Clears the bill amount
 	 * 
-	 * @author satish
+	 * @author satish<satishgupta@lftechnology.com>
 	 */
 	public void clear() {
-		totalPrice = 0;
+		isCleared = true;
+	}
+
+	public boolean isCleared() {
+		return isCleared;
 	}
 }
