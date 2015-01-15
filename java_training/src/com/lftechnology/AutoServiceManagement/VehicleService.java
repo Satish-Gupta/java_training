@@ -1,32 +1,32 @@
 package com.lftechnology.AutoServiceManagement;
 
 /**
- * This class represents generic services which can be used in general.
+ * This class represents services which can be provided for different vehicles.
  * 
  * @author satish<satishgupta@lftechnology.com>
  * 
  */
-public class Service {
-	public String name = "";
-	public int price = 0;
+public class VehicleService {
+	private String name = "";
+	private float price = 0;
 
 	// To do create a class time or use millis or use the Time class made in previous assignment
 
 	/**
 	 * constructs <code>Service</code>
 	 * 
-	 * @author satish
+	 * @author satish<satishgupta@lftechnology.com>
 	 */
-	public Service() {
+	public VehicleService() {
 
 	}
 
 	/**
 	 * constructs <code>Service</code> with the supplied name and price.
 	 * 
-	 * @author satish
+	 * @author satish<satishgupta@lftechnology.com>
 	 */
-	public Service(String name, int price) {
+	public VehicleService(String name, int price) {
 		this.name = name;
 		this.price = price;
 	}
@@ -35,7 +35,7 @@ public class Service {
 	 * Sets the name for this <code>Service</code>
 	 * 
 	 * @param name
-	 * @author satish
+	 * @author satish<satishgupta@lftechnology.com>
 	 */
 	public void setName(String name) {
 		this.name = name;
@@ -46,7 +46,7 @@ public class Service {
 	 * 
 	 * @param name
 	 *            the name for this <code>Service</code>
-	 * @author satish
+	 * @author satish<satishgupta@lftechnology.com>
 	 */
 	public String getName() {
 		return name;
@@ -57,7 +57,7 @@ public class Service {
 	 * 
 	 * @param price
 	 *            the price to be charged for this <code>Service</code>
-	 * @author satish
+	 * @author satish<satishgupta@lftechnology.com>
 	 */
 	public void setPrice(int price) {
 		this.price = price;
@@ -67,10 +67,10 @@ public class Service {
 	 * Retrieves the prices for this <code>Service</code>
 	 * 
 	 * @return the price to be charged for this <code>Service</code>
-	 * @author satish
+	 * @author satish<satishgupta@lftechnology.com>
 	 * 
 	 */
-	public int getPrice() {
+	public float getPrice() {
 		return price;
 	}
 
