@@ -36,9 +36,9 @@ public class AutoServiceManagement {
 			if (service.equals(wash)) {
 				wash(car);
 			} else if (service.equals(wax)) {
-				wax(car);
+				polish(car);
 			} else {
-				color(car);
+				paint(car);
 			}
 		}
 		LOGGER.log(Level.INFO, "Car servicing completed");
@@ -48,32 +48,32 @@ public class AutoServiceManagement {
 	}
 
 	/**
-	 * Performs wash operation on this <code>Car</code>
+	 * Performs wash operation on object of {@link Car}
 	 * 
-	 * @author satish
 	 * @param {@link Car} to be washed
+	 * @author satish
 	 */
 	public static void wash(Car car) {
 		LOGGER.info("washing car");
 	}
 
 	/**
-	 * Performs wax operation on this <code>Car</code>
+	 * Performs polish operation on object of {@link Car}
 	 * 
+	 * @param {@link Car} to be polished with wax
 	 * @author satish
-	 * @param {@link Car} to be poslish with wax
 	 */
-	public static void wax(Car car) {
-		LOGGER.info("waxing car");
+	public static void polish(Car car) {
+		LOGGER.info("polishing car");
 	}
 
 	/**
-	 * Performs color operation on this <code>Car</code>
+	 * Performs paint operation on object of {@link Car}
 	 * 
+	 * @param {@link Car} to be painted
 	 * @author satish
-	 * @param {@link Car} to be coloured
 	 */
-	public static void color(Car car) {
-		LOGGER.info("coloring car");
+	public static void paint(Car car) {
+		LOGGER.info("painting car");
 	}
 }
