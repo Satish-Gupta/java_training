@@ -1,7 +1,5 @@
 package com.lftechnology.AutoServiceManagement;
 
-import java.util.logging.Logger;
-
 /**
  * This class represents car object and allows various service operation for it.
  * 
@@ -9,13 +7,12 @@ import java.util.logging.Logger;
  * 
  */
 public class Car {
-	private static Logger LOGGER = Logger.getLogger(Car.class.getName());
 	private Long serialNo = 0L;
 
 	/**
 	 * constructs <code>Car</code>
 	 * 
-	 * @author satish
+	 * @author satish<satishgupta@lftechnology.com>
 	 */
 	public Car() {
 	}
@@ -23,9 +20,19 @@ public class Car {
 	/**
 	 * constructs <code>Car</code> with supplied serial number
 	 * 
-	 * @author satish
+	 * @author satish<satishgupta@lftechnology.com>
 	 */
 	public Car(Long serial) {
 		this.serialNo = serial;
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see java.lang.Object#toString()
+	 */
+	@Override
+	public String toString() {
+		return "car with id " + serialNo.toString();
 	}
 }
