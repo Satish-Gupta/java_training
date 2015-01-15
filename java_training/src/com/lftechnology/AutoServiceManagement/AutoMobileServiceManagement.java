@@ -12,17 +12,17 @@ import java.util.logging.Logger;
  * @author satish<satishgupta@lftechnology.com>
  * 
  */
-public class AutoServiceManagement {
-	private final static Logger LOGGER = Logger.getLogger(AutoServiceManagement.class.getName());
+public class AutoMobileServiceManagement {
+	private final static Logger LOGGER = Logger.getLogger(AutoMobileServiceManagement.class.getName());
 
 	public static void main(String[] args) {
-		Service wash = new Service("wash", 200);
-		Service wax = new Service("wax", 50);
-		Service color = new Service("color", 5000);
+		final VehicleService wash = new VehicleService("wash", 200);
+		final VehicleService wax = new VehicleService("wax", 50);
+		final VehicleService color = new VehicleService("color", 5000);
 		Car car = new Car(1111L);
-		List<Service> servicesRequested = new ArrayList<Service>();
+		List<VehicleService> servicesRequested = new ArrayList<VehicleService>();
 
-		LOGGER.info("requesting services wash and color for car");
+		LOGGER.log(Level.INFO, "requesting services wash and color for {0}", car);
 		// request services for the car
 		servicesRequested.add(wash);
 		servicesRequested.add(color);
@@ -30,9 +30,9 @@ public class AutoServiceManagement {
 		Bill bill = new Bill(servicesRequested);
 		bill.calculateTotal();
 
-		LOGGER.log(Level.INFO, "Total bill amount for this car = {0}", bill.getTotal());
-		LOGGER.log(Level.INFO, "Performing requested Services");
-		for (Service service : servicesRequested) {
+		LOGGER.log(Level.INFO, "Total bill amount for the {0} is {1}", new Object[] { car, bill.getTotal() });
+		LOGGER.log(Level.INFO, "Performing requested Services for {0}", car);
+		for (VehicleService service : servicesRequested) {
 			if (service.equals(wash)) {
 				wash(car);
 			} else if (service.equals(wax)) {
@@ -41,39 +41,39 @@ public class AutoServiceManagement {
 				paint(car);
 			}
 		}
-		LOGGER.log(Level.INFO, "Car servicing completed");
+		LOGGER.log(Level.INFO, "servicing for {0} completed", car);
 		LOGGER.log(Level.INFO, "Clearing the bill");
 		bill.clear();
-		LOGGER.log(Level.INFO, "Total bill amount for this car = {0}", bill.getTotal());
+		LOGGER.log(Level.INFO, "Bill Status of {0} : {1}", new Object[] { car, bill.isCleared() ? "cleared" : "pending" });
 	}
 
 	/**
 	 * Performs wash operation on object of {@link Car}
 	 * 
 	 * @param {@link Car} to be washed
-	 * @author satish
+	 * @author satish<satishgupta@lftechnology.com>
 	 */
 	public static void wash(Car car) {
-		LOGGER.info("washing car");
+		LOGGER.info("washing " + car);
 	}
 
 	/**
 	 * Performs polish operation on object of {@link Car}
 	 * 
 	 * @param {@link Car} to be polished with wax
-	 * @author satish
+	 * @author satish<satishgupta@lftechnology.com>
 	 */
 	public static void polish(Car car) {
-		LOGGER.info("polishing car");
+		LOGGER.info("polishing " + car);
 	}
 
 	/**
 	 * Performs paint operation on object of {@link Car}
 	 * 
 	 * @param {@link Car} to be painted
-	 * @author satish
+	 * @author satish<satishgupta@lftechnology.com>
 	 */
 	public static void paint(Car car) {
-		LOGGER.info("painting car");
+		LOGGER.info("painting" + car);
 	}
 }
