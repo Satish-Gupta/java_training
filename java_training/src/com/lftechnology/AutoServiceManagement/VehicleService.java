@@ -13,7 +13,7 @@ public class VehicleService {
 	// To do create a class time or use millis or use the Time class made in previous assignment
 
 	/**
-	 * constructs <code>Service</code>
+	 * constructs {@link VehicleService}
 	 * 
 	 * @author satish<satishgupta@lftechnology.com>
 	 */
@@ -22,7 +22,7 @@ public class VehicleService {
 	}
 
 	/**
-	 * constructs <code>Service</code> with the supplied name and price.
+	 * constructs {@link VehicleService} with the supplied name and price.
 	 * 
 	 * @author satish<satishgupta@lftechnology.com>
 	 */
@@ -32,7 +32,7 @@ public class VehicleService {
 	}
 
 	/**
-	 * Sets the name for this <code>Service</code>
+	 * Sets the name for this {@link VehicleService}
 	 * 
 	 * @param name
 	 * @author satish<satishgupta@lftechnology.com>
@@ -42,10 +42,10 @@ public class VehicleService {
 	}
 
 	/**
-	 * Retrieves the name for this <code>Service</code>
+	 * Retrieves the name for this {@link VehicleService}
 	 * 
 	 * @param name
-	 *            the name for this <code>Service</code>
+	 *            the name for this {@lin VehicleService}
 	 * @author satish<satishgupta@lftechnology.com>
 	 */
 	public String getName() {
@@ -53,10 +53,10 @@ public class VehicleService {
 	}
 
 	/**
-	 * Sets the price for this <code>Service</code>
+	 * Sets the price for this {@link VehicleService}
 	 * 
 	 * @param price
-	 *            the price to be charged for this <code>Service</code>
+	 *            the price to be charged for this {@link VehicleService}
 	 * @author satish<satishgupta@lftechnology.com>
 	 */
 	public void setPrice(int price) {
@@ -64,9 +64,9 @@ public class VehicleService {
 	}
 
 	/**
-	 * Retrieves the prices for this <code>Service</code>
+	 * Retrieves the prices for this {@link VehicleService}
 	 * 
-	 * @return the price to be charged for this <code>Service</code>
+	 * @return the price to be charged for this {@link VehicleService}
 	 * @author satish<satishgupta@lftechnology.com>
 	 * 
 	 */
