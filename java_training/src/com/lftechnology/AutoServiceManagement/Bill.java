@@ -11,12 +11,11 @@ import java.util.List;
  */
 public class Bill {
 	private float totalPrice = 0;
-	// to do check possible use of Set
 	private List<VehicleService> items = new ArrayList<VehicleService>();
 	private boolean isCleared = false;
 
 	/**
-	 * constructs <code>Bill</code>
+	 * constructs {@link Bill}
 	 * 
 	 * @author satish<satishgupta@lftechnology.com>
 	 */
@@ -24,12 +23,13 @@ public class Bill {
 	}
 
 	/**
-	 * constructs <code>Bill</code> with for the provided {@link List} of {@link VehicleService}
+	 * constructs {@link Bill} with for the provided {@link List} of {@link VehicleService}
 	 * 
 	 * @author satish<satishgupta@lftechnology.com>
 	 */
 	public Bill(List<VehicleService> items) {
 		this.items = items;
+		calculateTotal();
 	}
 
 	/**
@@ -58,7 +58,7 @@ public class Bill {
 	}
 
 	/**
-	 * Retrives the total amound for this {@link Bill}
+	 * Retrieves the total amount for this {@link Bill}
 	 * 
 	 * @return total amount for this bill
 	 * @author satish<satishgupta@lftechnology.com>
@@ -68,7 +68,7 @@ public class Bill {
 	}
 
 	/**
-	 * Clears the bill amount
+	 * Clears the {@link Bill}. i.e mark this {@link Bill} as paid
 	 * 
 	 * @author satish<satishgupta@lftechnology.com>
 	 */
@@ -76,6 +76,11 @@ public class Bill {
 		isCleared = true;
 	}
 
+	/**
+	 * Checks if the {@link Bill} is cleared i.e if {@link Bill} has been paid
+	 * 
+	 * @return <code>true</code> if the bill is cleared; otherwise <code>false</code>
+	 */
 	public boolean isCleared() {
 		return isCleared;
 	}

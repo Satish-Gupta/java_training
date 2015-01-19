@@ -6,11 +6,10 @@ package com.lftechnology.AutoServiceManagement;
  * @author satish<satishgupta@lftechnology.com>
  * 
  */
-public class Car {
-	private Long serialNo = 0L;
+public class Car extends Vehicle {
 
 	/**
-	 * constructs <code>Car</code>
+	 * constructs {@link Car}
 	 * 
 	 * @author satish<satishgupta@lftechnology.com>
 	 */
@@ -18,7 +17,7 @@ public class Car {
 	}
 
 	/**
-	 * constructs <code>Car</code> with supplied serial number
+	 * constructs {@link Car} with supplied serial number
 	 * 
 	 * @author satish<satishgupta@lftechnology.com>
 	 */
